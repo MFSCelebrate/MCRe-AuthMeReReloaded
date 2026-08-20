@@ -69,14 +69,14 @@ import static fr.xephi.authme.util.Utils.isClassLoaded;
 public class AuthMe extends JavaPlugin {
 
     // Constants
-    private static final String PLUGIN_NAME = "AuthMeReloaded";
+    private static final String PLUGIN_NAME = "MCRe-AuthMeReloaded";
     private static final String LOG_FILENAME = "authme.log";
     private static final int CLEANUP_INTERVAL = 5 * TICKS_PER_MINUTE;
 
     // Version and build number values
-    private static String pluginVersion = "5.7.0-Fork";
+    private static String pluginVersion = "5.7.0-Fork (MFSCe)";
     private static final String pluginBuild = "b";
-    private static String pluginBuildNumber = "53";
+    private static String pluginBuildNumber = "54";
     // Private instances
     private EmailService emailService;
     private CommandHandler commandHandler;
