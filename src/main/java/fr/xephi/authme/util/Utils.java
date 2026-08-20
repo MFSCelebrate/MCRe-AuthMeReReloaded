@@ -109,24 +109,22 @@ public final class Utils {
         return StringUtils.isBlank(email) || "your@email.com".equalsIgnoreCase(email);
     }
 
-    // ===================== 修改后的版本解析（方案一） =====================
+    // ===================== 修改后的版本解析（方案一，无final） =====================
     // 保存解析出的版本号数组（仅内部可能使用）
-    private final static String[] serverVersion;
+    private static String[] serverVersion;
     // 对外暴露的主版本号和次版本号，若解析失败则默认设为 1.8
-    public final static int MAJOR_VERSION;
-    public final static int MINOR_VERSION;
+    public static int MAJOR_VERSION;
+    public static int MINOR_VERSION;
     // 第一版本号（通常为 1），若不需要可设为私有
-    private final static int FIRST_VERSION;
+    private static int FIRST_VERSION;
 
     static {
         String bukkitVersion = Bukkit.getServer().getBukkitVersion();
         String versionPart;
         try {
-            // 截取 "-" 之前的部分
             int dashIdx = bukkitVersion.indexOf("-");
             versionPart = (dashIdx >= 0) ? bukkitVersion.substring(0, dashIdx) : bukkitVersion;
             String[] parts = versionPart.split("\\.");
-            // 至少要有 2 个部分（主版本.次版本）
             int first = Integer.parseInt(parts[0]);
             int major = Integer.parseInt(parts[1]);
             int minor = (parts.length >= 3) ? Integer.parseInt(parts[2]) : 0;
